@@ -1,10 +1,10 @@
 
-require('dotenv').config()
+
 
 
 const express = require("express");
 
-const  PORT  =  process.env.PORT || 9000
+const  PORT  =  9000
 const  databaseConnection  = require("./db");
 const userModel = require("./user");
 const {sendOtp} = require("./mailer2");
