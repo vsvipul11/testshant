@@ -46,19 +46,20 @@ const transporter = nodemailer.createTransport({
  async function sendemail(data) {
     const { email, ticket } = data;
     try {
-      const message = {
-        from: "shantanu@futuristictech.in",
-        to: email,
-        subject: "Verify your email",
-        text: `Your Ticket has been generated. Your ticket ID is  ${ticket}`,
-      };
-      await transporter.sendMail(message);
-      return true;
+        const message = {
+            from: "shantanu@futuristictech.in",
+            to: email,
+            subject: "Your Ticket has been Generated",
+            text: `Your Ticket has been generated. Your ticket ID is ${ticket}`,
+        };
+        const info = await transporter.sendMail(message);
+        console.log("Email sent successfully:", info.response);
+        return true;
     } catch (error) {
-      console.log(error);
-      return false;
+        console.error("Error sending email:", error);
+        throw error; // This will allow the error to be caught in the route handler
     }
-  }
+}
   
   
   module.exports = {sendemail};  
