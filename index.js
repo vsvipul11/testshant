@@ -80,7 +80,7 @@ const generateRandomTicket = () => {
   for (let i = 0; i < length; i++) {
       ticket += Math.floor(Math.random() * 10); // Generate random number between 0-9 and append to OTP
   }
-  return otp;
+  return ticket;
 };
 
 
